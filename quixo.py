@@ -48,3 +48,17 @@ def formater_les_parties(parties):
     """
     Fonction qui accepte en argument une liste de parties sous forme de dictionnaires 
     """
+    formatted_parties = ""
+    for i, partie in enumerate(parties, start=1):
+        id_partie = partie.get("id")
+        date = partie.get("date")
+        joueurs = " vs ".join(partie.get("joueurs"))
+        gagnant = partie.get("gagnant", "aucun")
+        formatted_parties += f"{i}: {date}, {joueurs}, gagnant: {gagnant}\n"
+    return formatted_parties
+
+def recuperer_le_coup():
+    """
+    Fonction qui, en utilisant la fonction input, pose deux (2) questions à l'utilisateur: 
+    l'origine du bloc à déplacer et la direction dans laquelle le déplacer.
+    """
