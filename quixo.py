@@ -14,3 +14,21 @@ def formater_legende(joueurs):
         return f"Légende: X={joueurs[0]}, O={joueurs[1]}"
     else:
         return "Légende: Impossible de formater la légende avec le nombre de joueurs donné."
+
+def formater_plateau(plateau):
+    """
+    Fonction qui accepte en argument l'état du plateau (tel que représenté par la valeur de la clé 
+    plateau de l'état de jeu ci-dessous) et qui retourne le plateau correspondant 
+    en art ASCII (chaîne de caractères).
+    """
+    formatted_board = "   -------------------\n"
+    for i, row in enumerate(plateau):
+        formatted_board += f"{i + 1} | "
+        for cell in row:
+            formatted_board += f" {cell} |"
+        formatted_board += "\n"
+        if i < len(plateau) - 1:
+            formatted_board += "  |---|---|---|---|---|\n"
+    formatted_board += "--|---|---|---|---|---\n"
+    formatted_board += "  | 1   2   3   4   5\n"
+    return formatted_board
