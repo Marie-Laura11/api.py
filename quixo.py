@@ -43,3 +43,8 @@ def formater_jeu(joueurs, plateau):
     plateau_formate = formater_plateau(plateau)
     jeu_formate = f"{legende}\n{plateau_formate}"
     return jeu_formate
+
+def formater_les_parties(parties):
+    """
+    Fonction qui accepte en argument une liste de parties sous forme de dictionnaires 
+    """
