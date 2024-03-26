@@ -3,7 +3,7 @@ Ce module contient les mécaniques du jeu Quixo. Il contient les fonctions
 qui permettent d'afficher le jeu, de demander un coup à l'utilisateur ainsi 
 que d'analyser les paramètres de la ligne de commande.
 """
-
+import argparse
 
 def formater_legende(joueurs):
     """
@@ -66,3 +66,17 @@ def recuperer_le_coup():
     origine = [int(coord.strip()) for coord in origine_input.split(",")]
     direction = input("Quelle direction voulez-vous insérer? ('haut', 'bas', 'gauche', 'droite'): ")
     return origine, direction
+
+def analyser_commande():
+    """
+    Fonction qui fera appel au module argparse (voir document afférent) afin de traiter 
+    la ligne de commande telle que présentée dans la section parlant du module main 
+    décrit plus loin. 
+    """
+    parser = argparse.ArgumentParser(description="Quixo")
+
+    parser.add_argument("idul", help="IDUL du joueur")
+    parser.add_argument("-p", "--parties", action="store_true",
+                        help="Lister les parties existantes")
+
+    return parser.parse_args()
