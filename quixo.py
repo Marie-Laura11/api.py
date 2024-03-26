@@ -32,3 +32,14 @@ def formater_plateau(plateau):
     formatted_board += "--|---|---|---|---|---\n"
     formatted_board += "  | 1   2   3   4   5\n"
     return formatted_board
+
+def formater_jeu(joueurs, plateau):
+    """
+    Fonction qui accepte en argument la liste de joueurs et l'état du plateau et qui, 
+    à l'aide des deux fonctions précédentes, retourne le plateau correspondant 
+    en art ASCII (chaîne de caractères).
+    """
+    legende = formater_legende(joueurs)
+    plateau_formate = formater_plateau(plateau)
+    jeu_formate = f"{legende}\n{plateau_formate}"
+    return jeu_formate
